@@ -2,10 +2,19 @@
 setlocal EnableExtensions
 
 set "REPO_DIR=%~dp0"
+if "%REPO_DIR:~-1%"=="\" set "REPO_DIR=%REPO_DIR:~0,-1%"
 set "REMOTE_NAME=origin"
 set "BRANCH_NAME=main"
 
 cd /d "%REPO_DIR%" || goto :failure
+
+rem Codex created this repository under its sandbox account. Permit Git to use
+rem this exact working tree when the script is double-clicked by its owner.
+rem This setting exists only for this script process and does not trust any
+rem other directory or modify the user's global Git configuration.
+set "GIT_CONFIG_COUNT=1"
+set "GIT_CONFIG_KEY_0=safe.directory"
+set "GIT_CONFIG_VALUE_0=%REPO_DIR%"
 
 echo ====================================================================
 echo  CHEFS One-Click Form Tester - Safe GitHub Sync
@@ -19,10 +28,10 @@ if errorlevel 1 (
   goto :failure
 )
 
-git rev-parse --is-inside-work-tree >nul 2>&1
+git rev-parse --is-inside-work-tree >nul
 if errorlevel 1 (
-  echo ERROR: "%REPO_DIR%" is not a Git working tree.
-  echo Run the one-time repository setup before using this sync script.
+  echo ERROR: Git could not open "%REPO_DIR%" as a working tree.
+  echo Review the Git error printed above.
   goto :failure
 )
 
