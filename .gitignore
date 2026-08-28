@@ -1,0 +1,21 @@
+# Local analysis and generated working material
+work/
+
+# Raw tester exports may contain screenshots or diagnostic evidence.
+# Keep the reviewed Markdown reports, but do not publish the ZIP bundles.
+feedback/*.zip
+feedback/**/*.zip
+inputs/*.zip
+inputs/**/*.zip
+
+# Local tool and editor state
+.agents/
+.codex/
+.vscode/
+node_modules/
+
+# Operating-system and transient files
+Thumbs.db
+.DS_Store
+*.log
+*.tmp
