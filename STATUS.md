@@ -21,8 +21,8 @@ Last updated: 2026-08-28
 - Association mode: `DEDICATED`
 - Repository: `https://github.com/smccolm/CHEFS-One-Click-Form-Tester.git`
 - Branch: `main`
-- Revision: `9d6b1ac15bb56c4f986784a558c9fde9fcf52790` remote baseline; project import pending
-- Working tree status: `UNCOMMITTED PROJECT IMPORT`
+- Revision: `e005493` (verified v0.4.9 project import commit; push pending GitHub authorization)
+- Working tree status: `CLEAN` after the repository-metadata commit
 
 ## Latest feedback
 
